@@ -1,9 +1,19 @@
+import { useState } from "react";
 import './App.scss';
-import Catalogo from "./components/catalogo/catalogo";
+import Header from "./components/header/header";
 
 function App() {
+
+    const [idCategoria, setIdCategoria] = useState<number>(0);
     return (
-        <Catalogo />
+
+        <div className="app">
+            <Header setIdCategoria={setIdCategoria} />
+            {idCategoria}
+
+        </div>
+
+
     );
 }
 
