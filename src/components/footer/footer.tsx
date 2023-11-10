@@ -10,7 +10,7 @@ const Footer: React.FC<IProps> = (props: IProps): React.ReactElement => {
 
     return (
         <>
-            <div>
+            <div className="fixed-bottom">
                 <Row>
                     <Col sm>About us</Col>
                     <Col sm>Contatti</Col>

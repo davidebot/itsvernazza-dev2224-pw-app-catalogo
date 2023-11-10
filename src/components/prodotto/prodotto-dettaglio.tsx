@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import ListGroup from 'react-bootstrap/ListGroup';
-import { Prodotto } from "../../model/prodotto";
+import { ProjectWorkServiceCatalogoBlModelsProdottoDto } from "../../api/generated";
 
 interface IProps {
-    prodotto: Prodotto;
+    prodotto: ProjectWorkServiceCatalogoBlModelsProdottoDto;
 }
 
 const ProdottoDettaglio: React.FC<IProps> = (props: IProps): React.ReactElement => {
@@ -31,14 +31,14 @@ const ProdottoDettaglio: React.FC<IProps> = (props: IProps): React.ReactElement 
                 </Modal.Header>
                 <Modal.Body>
                     <ListGroup>
-                        <ListGroup.Item>{props.prodotto.nome}</ListGroup.Item>
-                        <ListGroup.Item>{props.prodotto.descrizione}</ListGroup.Item>
-                        <ListGroup.Item>{props.prodotto.categoria.nome}</ListGroup.Item>
-                        <ListGroup.Item>{props.prodotto.prezzo}</ListGroup.Item>
-                        <ListGroup.Item>{props.prodotto.peso}</ListGroup.Item>
-                        <ListGroup.Item>{props.prodotto.materiale}</ListGroup.Item>
-                        <ListGroup.Item>{props.prodotto.immagine}</ListGroup.Item>
-                        <ListGroup.Item>{props.prodotto.disponibilita}</ListGroup.Item>
+                        <ListGroup.Item>Nome: {props.prodotto.nome}</ListGroup.Item>
+                        <ListGroup.Item>Descrizione: {props.prodotto.descrizione}</ListGroup.Item>
+                        <ListGroup.Item>Categoria: {props.prodotto.categoria?.nome}</ListGroup.Item>
+                        <ListGroup.Item>Prezzo: {props.prodotto.prezzo}</ListGroup.Item>
+                        <ListGroup.Item>Peso: {props.prodotto.peso}</ListGroup.Item>
+                        <ListGroup.Item>Materiale: {props.prodotto.materiale}</ListGroup.Item>
+                        <ListGroup.Item>Img: {props.prodotto.immagine}</ListGroup.Item>
+                        <ListGroup.Item>Disponibilità: {props.prodotto.disponibilita}</ListGroup.Item>
 
                     </ListGroup>
                 </Modal.Body>

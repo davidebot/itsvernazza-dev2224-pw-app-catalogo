@@ -1,23 +1,26 @@
 
 import Card from 'react-bootstrap/Card';
-import { Prodotto } from "../../model/prodotto";
+import { ProjectWorkServiceCatalogoBlModelsProdottoDto } from "../../api/generated";
 import ProdottoDettaglio from "./prodotto-dettaglio";
 
 interface IProps {
-    prodotto: Prodotto;
+    prodotto: ProjectWorkServiceCatalogoBlModelsProdottoDto;
 }
 
 const ProdottoCard: React.FC<IProps> = (props: IProps): React.ReactElement => {
+
+    const { prodotto } = props;
+
     return (
         <>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+            <Card>
+                <Card.Img variant="top" src={prodotto.immagine ?? ""} />
                 <Card.Body>
-                    <Card.Title>{props.prodotto.nome}</Card.Title>
+                    <Card.Title>{prodotto.nome}</Card.Title>
                     <Card.Text>
-                        {props.prodotto.descrizione}
+                        {prodotto.descrizione}
                     </Card.Text>
-                    <ProdottoDettaglio prodotto={props.prodotto} />
+                    <ProdottoDettaglio prodotto={prodotto} />
                 </Card.Body>
             </Card>
         </>
